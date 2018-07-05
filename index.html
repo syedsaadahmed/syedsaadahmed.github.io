@@ -4,10 +4,9 @@
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <title></title>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://googledrive.com/host/0B6W2C3whvuZdQnBLSzZkTXlLbXM/raphael.js"></script>
-<script type="text/javascript" src="https://googledrive.com/host/0B6W2C3whvuZdQnBLSzZkTXlLbXM/rain.js"></script>
+<script type="text/javascript" src="https://googledrive.com/host/0B6W2C3whvuZdQnBLSzZkTXlLbXM/snowfall.jquery.js"></script>
 <style type="text/css">
-.raining_effect_container {
+.snowing_effect_container {
 	/*font_family*/font-family:Lucida Sans Unicode,Lucida Grande,sans-serif;
 	font-size:11px;
 	color: gray;
@@ -15,24 +14,24 @@
 	white-space:nowrap;
 	margin:0;
 	padding:0;
+	display: none;
 	min-width:100px;
 }
 
-span.raining-button {display:block;width:16px;height:16px;padding: 0 0 0 20px;margin:0;background:url('https://lh3.googleusercontent.com/-1NynK0zy8aI/UXdEAm1MlaI/AAAAAAAAAJA/jtk0PHtW3tU/s32/playpause.gif') no-repeat;cursor: pointer;}
-span.raining-play {background-position:0 -16px;}
-span.raining-pause {background-position:0 0;}
+span.snowing-button {display:block;width:16px;height:16px;padding: 0 0 0 20px;margin:0;background:url('https://googledrive.com/host/0B6W2C3whvuZdSWdabXZ5MnZ1REE/playpause.gif') no-repeat;cursor: pointer;}
+span.snowing-play {background-position:0 -16px;}
+span.snowing-pause {background-position:0 0;}
 </style>
 
 <script type="text/javascript">
-/*var_raining_start*/var raining_start=true;
-/*var_raining_area_id*/var rainy_area_id="rainy-area";
-var raining=null;
+/*var_snowing_start*/var snowing_start=true;
+/*var_runInside*/var runInside=true;
+/*var_wintermode*/var wintermode=false;
 
-$(window).load(function(){$(".raining_effect_container .raining-button").click(function(){if($(this).hasClass("raining-pause")){if(raining){raining.clearDrops()}$(this).removeClass("raining-pause").addClass("raining-play").html(/*var_raining_stop_text*/"waiting rain...")}else{if(!raining){raining=new Rain(rainy_area_id,{angle:10,intensity:5,size:5})}else{raining.restartDrops()}$(this).removeClass("raining-play").addClass("raining-pause").html(/*var_raining_play_text*/"raining...")}});if(raining_start&&$(".raining_effect_container").is(":visible")){$(".raining_effect_container .raining-button").click()}});
+$(document).ready(function(){var b=new Date();var a=b.getMonth()+1;if(wintermode){if(a==12||a==1||a==2){$(".snowing_effect_container").show()}}else{$(".snowing_effect_container").show()}$(".snowing_effect_container .snowing-button").click(function(){if($(this).hasClass("snowing-pause")){$(runInside?document:window.top.document).snowfall("clear");$(this).removeClass("snowing-pause").addClass("snowing-play").html(/*var_snowing_stop_text*/"waiting snow...")}else{$(runInside?document:window.top.document).snowfall({runInside:runInside,shadow:true,round:true,/*var_minSize*/minSize:5,/*var_maxSize*/maxSize:8});$(this).removeClass("snowing-play").addClass("snowing-pause").html(/*var_snowing_play_text*/"snowing...")}});if(snowing_start&&$(".snowing_effect_container").is(":visible")){$(".snowing_effect_container .snowing-button").click()}});
 </script>
 </head>
 <body style="background: transparent; margin: 0pt;">
-<!--RAINING AREA BEGIN--><div id="rainy-area" style="width:300px;height:300px;background:black;"></div><!--RAINING AREA END-->
-<!--RAINING EFFECT BEGIN--><div class="raining_effect_container"><span class="raining-button raining-play">waiting rain...</span></div><!--RAINING EFFECT END-->
+<!--SNOWING EFFECT BEGIN--><div class="snowing_effect_container"><span class="snowing-button snowing-play">waiting snow...</span></div><!--SNOWING EFFECT END-->
 </body>
 </html>
