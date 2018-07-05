@@ -1,5 +1,38 @@
-<!-- This Script is from www.htmlfreecodes.com, Provided by: Mahmood Bina -->
-<script type='text/javascript' src='http://m.free-codes.org/gh.php?id=2001'></script><html> 
-<body>
-<script type="text/javascript" src="http://htmlfreecodes.com/codes/rain.js"></script>
-</body><a target="_blank" href="free-web-tools.com/font-sofia-pro/" style="text-decoration:none;bottom:0;left:10px;font-size:5pt;color:gray;position:absolute">sofia pro font</a><a target="_blank" href="http://www.htmlfreecodes.com" style="font-size: 8pt; text-decoration: none">Html Codes</a>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title></title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://googledrive.com/host/0B6W2C3whvuZdQnBLSzZkTXlLbXM/raphael.js"></script>
+<script type="text/javascript" src="https://googledrive.com/host/0B6W2C3whvuZdQnBLSzZkTXlLbXM/rain.js"></script>
+<style type="text/css">
+.raining_effect_container {
+	/*font_family*/font-family:Lucida Sans Unicode,Lucida Grande,sans-serif;
+	font-size:11px;
+	color: gray;
+	line-height:16px;
+	white-space:nowrap;
+	margin:0;
+	padding:0;
+	min-width:100px;
+}
+
+span.raining-button {display:block;width:16px;height:16px;padding: 0 0 0 20px;margin:0;background:url('https://lh3.googleusercontent.com/-1NynK0zy8aI/UXdEAm1MlaI/AAAAAAAAAJA/jtk0PHtW3tU/s32/playpause.gif') no-repeat;cursor: pointer;}
+span.raining-play {background-position:0 -16px;}
+span.raining-pause {background-position:0 0;}
+</style>
+
+<script type="text/javascript">
+/*var_raining_start*/var raining_start=true;
+/*var_raining_area_id*/var rainy_area_id="rainy-area";
+var raining=null;
+
+$(window).load(function(){$(".raining_effect_container .raining-button").click(function(){if($(this).hasClass("raining-pause")){if(raining){raining.clearDrops()}$(this).removeClass("raining-pause").addClass("raining-play").html(/*var_raining_stop_text*/"waiting rain...")}else{if(!raining){raining=new Rain(rainy_area_id,{angle:10,intensity:5,size:5})}else{raining.restartDrops()}$(this).removeClass("raining-play").addClass("raining-pause").html(/*var_raining_play_text*/"raining...")}});if(raining_start&&$(".raining_effect_container").is(":visible")){$(".raining_effect_container .raining-button").click()}});
+</script>
+</head>
+<body style="background: transparent; margin: 0pt;">
+<!--RAINING AREA BEGIN--><div id="rainy-area" style="width:300px;height:300px;background:black;"></div><!--RAINING AREA END-->
+<!--RAINING EFFECT BEGIN--><div class="raining_effect_container"><span class="raining-button raining-play">waiting rain...</span></div><!--RAINING EFFECT END-->
+</body>
+</html>
