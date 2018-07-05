@@ -1,37 +1,116 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+<!DOCTYPE html>
+<html lang="en" >
+
 <head>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-<title></title>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://googledrive.com/host/0B6W2C3whvuZdQnBLSzZkTXlLbXM/snowfall.jquery.js"></script>
+  <meta charset="UTF-8">
+  <title>Wandered jelly monster</title>
+  
+  
+  
+    <!--  <link rel="stylesheet" href="css/style.css">-->
 <style type="text/css">
-.snowing_effect_container {
-	/*font_family*/font-family:Lucida Sans Unicode,Lucida Grande,sans-serif;
-	font-size:11px;
-	color: gray;
-	line-height:16px;
-	white-space:nowrap;
-	margin:0;
-	padding:0;
-	display: none;
-	min-width:100px;
+	body {
+    margin: 0;
+    height: 100vh;
+    background-color: black;
 }
 
-span.snowing-button {display:block;width:16px;height:16px;padding: 0 0 0 20px;margin:0;background:url('https://googledrive.com/host/0B6W2C3whvuZdSWdabXZ5MnZ1REE/playpause.gif') no-repeat;cursor: pointer;}
-span.snowing-play {background-position:0 -16px;}
-span.snowing-pause {background-position:0 0;}
+.monster {
+    width: 100vw;
+    height: 50vh;
+    background-color: lightcyan;
+    position: relative;
+    overflow: hidden;
+}
+
+.body {
+    width: 32vmin;
+    height: 32vmin;
+    background-color: teal;
+    border-radius: 43% 40% 43% 40%;
+    position: absolute;
+    bottom: calc(-1 * 32vmin / 2 - 4vmin);
+    left: -2vmin;
+    animation:
+        wander 5s linear infinite alternate,
+        wave 3s linear infinite,
+        bounce 1s infinite alternate;
+}
+
+.eyes {
+    width: 24vmin;
+    height: 5vmin;
+    position: absolute;
+    bottom: 2vmin;
+    left: calc(32vmin - 24vmin - 2vmin);
+    animation: wander 5s linear infinite alternate;
+}
+
+.eyes::before,
+.eyes::after {
+    content: '';
+    position: absolute;
+    width: 5vmin;
+    height: 5vmin;
+    border: 1.25vmin solid white;
+    box-sizing: border-box;
+    border-radius: 50%;
+    animation: blink 3s infinite linear;
+}
+
+.eyes::before {
+    left: 4vmin;
+}
+
+.eyes::after {
+    right: 4vmin;
+}
+
+@keyframes bounce {
+    to {
+        bottom: calc(-1 * 32vmin / 2 - 2vmin);
+    }
+}
+
+@keyframes wave {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes wander {
+    to {
+        left: calc(100% - 32vmin + 2vmin);
+    }
+}
+
+@keyframes blink {
+    0%, 4%, 10%, 34%, 40%, 100% {
+        transform: scaleY(1);
+    }
+
+    7%, 37% {
+        transform: scaleY(0);
+    }
+}
+
+
+
 </style>
 
-<script type="text/javascript">
-/*var_snowing_start*/var snowing_start=true;
-/*var_runInside*/var runInside=true;
-/*var_wintermode*/var wintermode=false;
 
-$(document).ready(function(){var b=new Date();var a=b.getMonth()+1;if(wintermode){if(a==12||a==1||a==2){$(".snowing_effect_container").show()}}else{$(".snowing_effect_container").show()}$(".snowing_effect_container .snowing-button").click(function(){if($(this).hasClass("snowing-pause")){$(runInside?document:window.top.document).snowfall("clear");$(this).removeClass("snowing-pause").addClass("snowing-play").html(/*var_snowing_stop_text*/"waiting snow...")}else{$(runInside?document:window.top.document).snowfall({runInside:runInside,shadow:true,round:true,/*var_minSize*/minSize:5,/*var_maxSize*/maxSize:8});$(this).removeClass("snowing-play").addClass("snowing-pause").html(/*var_snowing_play_text*/"snowing...")}});if(snowing_start&&$(".snowing_effect_container").is(":visible")){$(".snowing_effect_container .snowing-button").click()}});
-</script>
+  
 </head>
-<body style="background: transparent; margin: 0pt;">
-<!--SNOWING EFFECT BEGIN--><div class="snowing_effect_container"><span class="snowing-button snowing-play">waiting snow...</span></div><!--SNOWING EFFECT END-->
+
+<body>
+
+  <div class="monster">
+  <span class="body"></span>
+  <span class="eyes"></span>
+</div>
+  
+  
+
 </body>
+
 </html>
