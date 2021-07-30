@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Syed Saad Ahmed</title>
-
-<meta name="description" content="">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="Syed Saad Ahmed Personal Website!" />
-<meta name="keywords" content="Saad,SaadAhmedNED,SaadAhmedkoblenz,SyedSaad,SaadAhmed,DevOps,SRE,NED,NEDCIS,Website" />
-<meta name="robots" content="ALL" />
-<meta name="author" content="SyedSaadAhmed" />
-
-<link rel="shortcut icon" href="https://raw.githubusercontent.com/syedsaadahmed/syedsaadahmed.com_v2/master/favicon.ico">
-
-<style>
-body,canvas,html{padding:0;margin:0}canvas,div#main{position:absolute}div#main,div.footer{opacity:.95;background-color:#fcfcfa;z-index:10}*{box-sizing:border-box;font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-weight:300}body,html{background-color:#fcfcfa;color:#333;height:100%;overflow:hidden;width:100%}div#main{border-radius:2px;border:2px solid #4682b4;left:0;margin:auto;padding:0 15px;right:0;top:60px;width:600px}h1,p{padding:0}a{color:#4682b4;text-decoration:none}a:hover{color:#7BE}div.footer{display:block;position:fixed;bottom:0;padding:0 10px}
-</style>
-
-<script type="text/javascript">
-var dimensions,height,width,graph,ctx,barWidth=30,color="#4682b4",drawTime=125,gap=32,stack=[];function animateDraw(t,a,e,n){var i=a||e,r=Math.ceil(.06*drawTime),h=i/r,o=gap*t[0],c=gap*t[1];!function t(e){if(r<e)return n();a?(ctx.moveTo(o+(e-1)*h,c),ctx.lineTo(o+e*h,c)):(ctx.moveTo(o,c+(e-1)*h),ctx.lineTo(o,c+e*h));ctx.stroke();window.requestAnimationFrame(t.bind(null,e+1))}(1)}function draw(t,e,a){var n=gap+(barWidth>>1),i=Math.pow(-1,e%2)*n;switch(e){case 1:case 2:return animateDraw(t,0,i,a);case 3:case 4:return animateDraw(t,i,0,a);default:return a()}}function empty(t){if(!t)return-1;var e=t[0],a=t[1],n=[];return 0<a&&0===graph[e][a-1]&&n.push(1),a<graph[e].length-2&&0===graph[e][a+1]&&n.push(2),0<e&&0===graph[e-1][a]&&n.push(3),e<graph.length-2&&0===graph[e+1][a]&&n.push(4),getRandom(n)||0}function fill(){for(var t=Math.ceil(2+width/gap),e=Math.ceil(3+height/gap),a=[],n=t-1;n--;){a[n]=[];for(var i=e-1;i--;)a[n][i]=0}return a}function getRandom(t){return t[t.length*Math.random()|0]}function initCanvas(){var t=document.createElement("canvas");document.body.appendChild(t),t.height=height,t.width=width,t.id="canvas";var e=t.getContext("2d"),a=window.devicePixelRatio||1;return t.style.width=t.width+"px",t.style.height=t.height+"px",t.width*=a,t.height*=a,e.setTransform(a,0,0,a,0,0),e.beginPath(),e.strokeStyle=color,e.lineWidth=barWidth,e}function step(t){var e=t[0],a=t[1],n=[];graph[e][a]=1,stack.push(t);var i=empty(t);draw(t,i,function(){if(i)switch(i){case 1:n=[e,a-1];break;case 2:n=[e,a+1];break;case 3:n=[e-1,a];break;case 4:n=[e+1,a]}else if(!i&&(e||a)&&stack.length)for(n=stack.pop();!empty(n);)n=stack.pop();n?step(n):console.log("finished drawing maze")})}document.addEventListener("DOMContentLoaded",function(){dimensions=document.body.getBoundingClientRect(),height=dimensions.height+10,width=dimensions.width+10,ctx=initCanvas(),graph=fill(),step([0,0])});
-</script>
-
+    <title>Syed Saad Ahmed</title>
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Syed Saad Ahmed Personal Website!" />
+    <meta name="keywords" content="Saad,SaadAhmedNED,SaadAhmedkoblenz,SyedSaad,SaadAhmed,DevOps,SRE,NED,NEDCIS,Website" />
+    <meta name="robots" content="ALL" />
+    <meta name="author" content="SyedSaadAhmed" />
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/syedsaadahmed/syedsaadahmed.com_v2/master/favicon.ico">
+    <style>
+        body,canvas,html{padding:0;margin:0}canvas,div#main{position:absolute}div#main,div.footer{opacity:.95;background-color:#fcfcfa;z-index:10}*{box-sizing:border-box;font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-weight:300}body,html{background-color:#fcfcfa;color:#333;height:100%;overflow:hidden;width:100%}div#main{border-radius:2px;border:2px solid #4682b4;left:0;margin:auto;padding:0 15px;right:0;top:60px;width:600px}h1,p{padding:0}a{color:#4682b4;text-decoration:none}a:hover{color:#7BE}div.footer{display:block;position:fixed;bottom:0;padding:0 10px}
+    </style>
+    <script type="text/javascript">
+        var dimensions,height,width,graph,ctx,barWidth=30,color="#4682b4",drawTime=125,gap=32,stack=[];function animateDraw(t,a,e,n){var i=a||e,r=Math.ceil(.06*drawTime),h=i/r,o=gap*t[0],c=gap*t[1];!function t(e){if(r<e)return n();a?(ctx.moveTo(o+(e-1)*h,c),ctx.lineTo(o+e*h,c)):(ctx.moveTo(o,c+(e-1)*h),ctx.lineTo(o,c+e*h));ctx.stroke();window.requestAnimationFrame(t.bind(null,e+1))}(1)}function draw(t,e,a){var n=gap+(barWidth>>1),i=Math.pow(-1,e%2)*n;switch(e){case 1:case 2:return animateDraw(t,0,i,a);case 3:case 4:return animateDraw(t,i,0,a);default:return a()}}function empty(t){if(!t)return-1;var e=t[0],a=t[1],n=[];return 0<a&&0===graph[e][a-1]&&n.push(1),a<graph[e].length-2&&0===graph[e][a+1]&&n.push(2),0<e&&0===graph[e-1][a]&&n.push(3),e<graph.length-2&&0===graph[e+1][a]&&n.push(4),getRandom(n)||0}function fill(){for(var t=Math.ceil(2+width/gap),e=Math.ceil(3+height/gap),a=[],n=t-1;n--;){a[n]=[];for(var i=e-1;i--;)a[n][i]=0}return a}function getRandom(t){return t[t.length*Math.random()|0]}function initCanvas(){var t=document.createElement("canvas");document.body.appendChild(t),t.height=height,t.width=width,t.id="canvas";var e=t.getContext("2d"),a=window.devicePixelRatio||1;return t.style.width=t.width+"px",t.style.height=t.height+"px",t.width*=a,t.height*=a,e.setTransform(a,0,0,a,0,0),e.beginPath(),e.strokeStyle=color,e.lineWidth=barWidth,e}function step(t){var e=t[0],a=t[1],n=[];graph[e][a]=1,stack.push(t);var i=empty(t);draw(t,i,function(){if(i)switch(i){case 1:n=[e,a-1];break;case 2:n=[e,a+1];break;case 3:n=[e-1,a];break;case 4:n=[e+1,a]}else if(!i&&(e||a)&&stack.length)for(n=stack.pop();!empty(n);)n=stack.pop();n?step(n):console.log("finished drawing maze")})}document.addEventListener("DOMContentLoaded",function(){dimensions=document.body.getBoundingClientRect(),height=dimensions.height+10,width=dimensions.width+10,ctx=initCanvas(),graph=fill(),step([0,0])});
+    </script>
 </head>
 <body>
-<div id="main">
-<a href="https://github.com/syedsaadahmed" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-<br>
-<h1>syedsaadahmed dot com</h1>
-<!--  <marquee><h4><a href="https://takingchallenges.me" target="_blank">Taking <b>N</b> Days <b>AWS & AZURE</b> Challenges</a></h4></blink></marquee>
-<br> -->
-<p> >_ A big thanks to <a href="https://stackoverflow.com/users/6422740/syed-saad-ahmed" target="_blank">stackoverflow</a> for keeping me motivated!</p>
-<br>
-<p> >_ I am a Computer Systems Engineer, up here with some experience.</p><br>
-<p> >_ Few blogs on $ <a href="https://thesaadahmed.medium.com/" target="_blank">Medium</a>
-<br>
-<br>
-<p> >_ Areas of Interest: DevOps, Site Reliability Engineering</p>
-<br>
-<p> >_ Let's Move Everything to the Cloud.</p>
-<br>
-<p> >_ Want to connect and have a Coffee? <br><br>
-$ Here is my <a href="https://www.linkedin.com/in/syed-saad-ahmed-460256100/?originalSubdomain=pk" target="_blank">LinkedIn</a> and <a href="https://www.xing.com/profile/SyedSaad_Ahmed2/cv" target="_blank">XING</a>  <br>
-$ <font color="red">Public Key</font>:<a href="https://keybase.io/syedsaadahmed20" target="_blank">3DD43A73FC9ECD8A</a>
-</p>
-<br>
-</div>
+    <div id="main">
+        <a href="https://github.com/syedsaadahmed" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a><br>
+        <h1>syedsaadahmed dot com</h1>
+        <!--  <marquee><h4><a href="https://takingchallenges.me" target="_blank">Taking <b>N</b> Days <b>AWS & AZURE</b> Challenges</a></h4></blink></marquee>--><br>
+        <p> >_ I am a Computer Systems Engineer, up here with some experience.</p><br>
+        <p> >_ A big thanks to <a href="https://stackoverflow.com/users/6422740/syed-saad-ahmed" target="_blank">stackoverflow</a> for keeping me motivated!</p><br>
+        <p> >_ Few blogs on $ <a href="https://thesaadahmed.medium.com/" target="_blank">Medium</a><br><br><br>
+        <p> >_ Areas of Interest: DevOps, Site Reliability Engineering</p>
+        <p> >_ Let's Move Everything to the Cloud Infrastructure</p><br>
+        <p> >_ Want to connect and have a Coffee? <br><br>
+        $ Here is my <a href="https://www.linkedin.com/in/syed-saad-ahmed-460256100/?originalSubdomain=pk" target="_blank">LinkedIn</a> and <a href="https://www.xing.com/profile/SyedSaad_Ahmed2/cv" target="_blank">XING</a>  <br>
+        $ <font color="red">Public Key</font>:<a href="https://keybase.io/syedsaadahmed20" target="_blank">3DD43A73FC9ECD8A</a></p><br>
+    </div>
 </body>
 </html>
