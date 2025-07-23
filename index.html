@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>thesaadahmed dot com</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Fira Code', monospace;
+      background-color: #0f0f0f;
+      color: #00ff00;
+    }
+
+    .terminal-header {
+      color: #00ff00;
+    }
+
+    .command {
+      color: #00ff00;
+    }
+
+    .whoami {
+      color: #00ff00;
+    }
+
+    .name {
+      font-size: 2.5rem;
+      color: #00ff00;
+      text-shadow: 0 0 8px #00ff00;
+      margin: 0.5rem 0;
+    }
+
+    .title {
+      color: #00ff88;
+      margin-bottom: 1rem;
+    }
+
+    .quote {
+      color: yellow;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      border: 1px solid #00ff00;
+      padding: 1rem;
+      border-radius: 5px;
+      background: rgba(0, 255, 0, 0.05);
+    }
+
+    .status {
+      color: #00ff00;
+    }
+
+    .sla {
+      color: red;
+    }
+
+    .connect {
+      color: #00ff00;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      border-top: 1px solid #00ff00;
+      padding-top: 1rem;
+      color: #00ff00;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal-header">
+    <span class="command">[ sre @ portfolio ~ ] $</span> <span class="whoami">whoami</span>
+  </div>
+
+  <h1 class="name">thesaadahmed dot com</h1>
+  <h2 class="title">Senior Restart Engineer</h2>
+  <p class="quote">But sometimes, <span style="color: yellow">"Have you tried turning it off and on again?"</span> is not enough.</p>
+
+  <div class="grid">
+    <div class="card">
+      <strong>STATUS</strong><br />
+      <span class="status">● Online</span>
+    </div>
+    <div class="card">
+      <strong>UPTIME</strong><br />
+      <span id="uptime">Loading...</span>
+    </div>
+    <div class="card">
+      <strong>RESPONSE SLA</strong><br />
+      <span class="sla">● 24-48 hours</span>
+    </div>
+  </div>
+
+  <h3>~/CONNECT</h3>
+  <div class="grid connect">
+    <div class="card">GitHub<br />@syedsaadahmed</div>
+    <div class="card">LinkedIn<br /><a href="https://www.linkedin.com/in/syed-saad-ahmed-460256100/" target="_blank">/in/syed-saad-ahmed-460256100/</a></div>
+    <div class="card">Medium<br />@thesaadahmed</div>
+    <div class="card">Stack Overflow<br />saad</div>
+    <div class="card">Public Key<br /><a href="https://keybase.io/syedsaadahmed20" target="_blank">keybase.io/syedsaadahmed20</a></div>
+    <div class="card">XING<br />SyedSaad_Ahmed2</div>
+  </div>
+
+  <div class="footer">
+    $ echo "But, I guess it was working on my system!"
+  </div>
+
+  <script>
+    const uptimeEl = document.getElementById("uptime");
+    const startTime = Date.now();
+    
+    function updateUptime() {
+      const now = Date.now();
+      const diff = Math.floor((now - startTime) / 1000);
+      const hrs = String(Math.floor(diff / 3600)).padStart(2, '0');
+      const mins = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+      const secs = String(diff % 60).padStart(2, '0');
+      uptimeEl.textContent = `0d ${hrs}h ${mins}m ${secs}s`;
+    }
+
+    setInterval(updateUptime, 1000);
+  </script>
+</body>
+</html>
